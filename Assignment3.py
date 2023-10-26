@@ -22,13 +22,20 @@ def matrex(row,column):
     rows.append(sumation_list)
     return rows
 print(matrex(2,3))
-#O(n^3) because the max methode have O(n)
+#Q2 O(n^3) because the max methode have O(n)
 def rotateList(rows):
     rotated_list=[[row[index] for row in rows if index<len(row)] for index in range(len(max(rows)))]
     return rotated_list
 rows=[[x for x in range(i,i+3)] for i in range(0,12,3)]
 print('->',rows,max(rows))
 print('->>',rotateList(rows))
-def convertToDict(rows):
+#Q3 O(n)
+def invertToDict(rows):
     return {f'Class{x}': rows[x] for x in range(len(rows))}
-print(convertToDict(rows))
+print(invertToDict(rows))
+#Q4
+def MatrixToDict():
+    task=['firstname','lastname','ID','jobtitle','company']
+    employees=[[input(f'{task[i]}{x}') for i in range(len(task))]for x in range(int(input('Enter the rows number:')))]
+    return {employee[2]:[employee[x] for x in range(len(employee)) if x !=2] for employee in employees}
+print(MatrixToDict())
