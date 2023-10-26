@@ -33,9 +33,16 @@ print('->>',rotateList(rows))
 def invertToDict(rows):
     return {f'Class{x}': rows[x] for x in range(len(rows))}
 print(invertToDict(rows))
-#Q4
+#Q4 O(n^2)
 def MatrixToDict():
     task=['firstname','lastname','ID','jobtitle','company']
     employees=[[input(f'{task[i]}{x+1}')if i!=2 else f'{task[i]}{x}' for i in range(len(task))]for x in range(int(input('Enter the rows number:')))]
     return {employee[2]:[employee[x] for x in range(len(employee)) if x !=2] for employee in employees}
 print(MatrixToDict())
+def palendrom(s)-> bool:
+    if len(s)==0:
+     return True
+    if s[0]==s[len(s)-1]:
+        return palendrom(s[1:len(s)-1])
+    return False
+print(palendrom('racecar'))
