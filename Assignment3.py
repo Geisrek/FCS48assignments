@@ -29,3 +29,6 @@ def rotateList(rows):
 rows=[[x for x in range(i,i+3)] for i in range(0,12,3)]
 print('->',rows,max(rows))
 print('->>',rotateList(rows))
+def convertToDict(rows):
+    return {f'Class{x}': rows[x] for x in range(len(rows))}
+print(convertToDict(rows))
