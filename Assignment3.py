@@ -36,6 +36,6 @@ print(invertToDict(rows))
 #Q4
 def MatrixToDict():
     task=['firstname','lastname','ID','jobtitle','company']
-    employees=[[input(f'{task[i]}{x}') for i in range(len(task))]for x in range(int(input('Enter the rows number:')))]
+    employees=[[input(f'{task[i]}{x+1}')if i!=2 else f'{task[i]}{x}' for i in range(len(task))]for x in range(int(input('Enter the rows number:')))]
     return {employee[2]:[employee[x] for x in range(len(employee)) if x !=2] for employee in employees}
 print(MatrixToDict())
