@@ -5,7 +5,7 @@ Created on Thu Oct 26 16:48:08 2023
 @author: USER
 """
 
-#Q1 it have O(1)
+#Q1 it have O(n)
 def matrecies(num_column):
     List1=[int(input('Enter element of the first row:')) for _ in range(num_column)]
     List2=[int(input('Enter element of the second row:')) for _ in range(num_column)]
@@ -46,3 +46,37 @@ def palendrom(s)-> bool:
         return palendrom(s[1:len(s)-1])
     return False
 print(palendrom('racecar'))
+def merge(Array,left,right):
+    left_size=len(left)
+    right_size=len(right)
+    i,l,r=0,0,0
+    while r<right_size and l<left_size:
+        if left[l]<right[r]:
+            Array[i]=left[l]
+            l+=1 
+        else:
+            Array[i]=right[r]
+            r+=1
+        i+=1
+    while l<left_size:
+        Array[i]=left[l]
+        l+=1 
+        i+=1
+    while r<right_size:
+        Array[i]=right[r]
+        r+=1
+        i+=1
+def mergeSort(Array):
+    size=len(Array)
+    if size<=1:
+        return 
+    left=Array[:size//2]
+    right=Array[len(left):]
+    mergeSort(left)
+    mergeSort(right)
+    merge(Array, left, right)
+Array=[3,5,7,8,1,2,3]
+mergeSort(Array)
+print(Array)
+    
+    
